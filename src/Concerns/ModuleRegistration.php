@@ -25,7 +25,8 @@ trait ModuleRegistration
         $this->registerCommandSchedules();
         $this->registerTranslations();
         $this->registerConfig();
-        $this->registerViews();
+        // $this->registerViews();
+        $this->loadViewsFrom(module_path($this->moduleName(), 'resources/views'), $this->moduleNameLower());
         $this->loadMigrationsFrom(module_path($this->moduleName(), 'database/migrations'));
 
         $this->registrationBoot();
